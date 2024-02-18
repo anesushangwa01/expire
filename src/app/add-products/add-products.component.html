@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Product Information</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+
+    <div class="form-group">
+      <div class="form-group">
+        <label for="productType">Product Type:</label>
+        <select class="form-control" id="productType" formControlName="types" required>
+          <option value="food">Food</option>
+          <option value="bakery">Bakery</option>
+          <option value="fruits">Fruits & Veg</option>
+        </select>
+      </div>
+      <label for="productName">Product Name:</label>
+      <input type="text" class="form-control" id="productName" formControlName="productname" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="startDate">Start Date:</label>
+      <input type="date" class="form-control" id="startDate" formControlName="packedDate" required>
+    </div>
+    <div class="form-group">
+      <label for="endDate">End Date:</label>
+      <input type="date" class="form-control" id="endDate" formControlName="expdate" required>
+    </div>
+   
+ 
+    <button type="submit" class="btn btn-primary" [disabled]="!addForm.valid">Submit</button>
+  </form>
+</div>

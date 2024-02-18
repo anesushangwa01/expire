@@ -1,0 +1,29 @@
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let entry of bakeryEntry; let i = index " >
+    <div class="card">
+      <img  class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ entry.types }}</h5>
+        <h5 class="card-title">{{ entry.productname }}</h5>
+        <div>
+          <ul>
+            <li>Packed Date: <span>{{ entry.packedDate | date:'shortDate' }}</span></li>
+            <li>EXP Date: <span>{{ entry.expdate | date:'shortDate' }}</span></li>
+            <li>Time left: <span>{{ calculateTimeLeft(entry.packedDate, entry.expdate) }}</span></li>
+        
+          </ul>
+        </div>
+        <div>
+        
+          <button   (click)="onEdit(i)" class="btn btn-primary" >Edit</button>   
+          <button class="btn btn-danger" (click)="onDelete(i)">Delete</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
